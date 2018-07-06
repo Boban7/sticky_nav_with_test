@@ -1,0 +1,101 @@
+$bc: #ECAD66;
+$tc: #3C180E; 
+$bg: #F9DFAB;
+
+%res-marg {
+	margin: 0;
+}
+
+%res-padd {
+	padding: 0;
+}
+
+%main-st{
+	background-color: $bc;
+	color: $tc;
+	padding: 30px 40px;
+}
+
+%cent{
+	text-align: center;
+}
+
+@mixin position($prop) {
+	-webkit-position: $prop;
+			position: $prop;
+}
+
+body{
+	@extend %res-marg;
+	@extend %res-padd;
+	background-color: $bg;
+}
+
+header{
+	margin: 30px;
+	@extend %cent;
+	@extend %main-st;
+}
+
+div{
+	margin: 30px;
+	@extend %main-st;
+}
+
+h2{ @extend %cent;}
+
+div p{
+	text-align: justify;
+	text-indent: 30px;
+	font-size: 140%;
+}
+
+.picture{
+	@extend %cent;
+	font-size: 200%;
+	padding-top: 50px;
+}
+
+img, .picture{border-radius: 30px;}
+
+ul{
+	list-style-type: none;
+	@extend %res-marg, %res-padd;
+	background-color: $tc;
+	width: 100%;
+	overflow: hidden;
+}
+
+nav{
+	@include position(sticky);
+	top: 0;
+}
+
+li{
+	float: left;
+	border-right: 1px $bg solid;
+}
+
+li a{
+	display: block;
+	padding: 30px 50px;
+	color: $bc;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 130%;
+}
+
+li:last-child{
+	border-right: none; 
+	float: right;
+}
+
+li a:hover:not(.active){
+	background-color: $bc;
+	color: $tc;
+}
+
+.active{
+	background-color: #DE6A2D;
+	color: $tc;
+}
